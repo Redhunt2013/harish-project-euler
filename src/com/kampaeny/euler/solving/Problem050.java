@@ -15,7 +15,7 @@ import java.util.List;
 
 import com.kampaeny.euler.utils.PrimeSieve;
 
-public class Problem50 {
+public class Problem050 {
 	static int MAX_VALUE = 1000;
 	static boolean[] primes = new boolean[MAX_VALUE];
 	static List<Integer> primeNumbersList = new ArrayList<Integer>();  

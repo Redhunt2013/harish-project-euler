@@ -23,7 +23,7 @@ public class Problem037
 		int primeSum = 0;
 		List<Integer> truncPrimeList = new ArrayList<Integer>();
 		
-		//construct the prime array
+		// construct the prime array
 		primes = PrimeSieve.fillSieve(primes);
 		
 		for(int i=8; i<primes.length; i++)
@@ -44,13 +44,11 @@ public class Problem037
 	{
 		boolean bTruncatablePrime = false;
 		int root = 10;
-//		int power = numberOfDigits(t);
 		int power = Digits.numberOfDigits(t);
 			
 		if(isPrime(t))
 		{			
-			//left-to-right
-//			bTruncatablePrime = (isPrime(t%10)) ? ((isPrime(t%100)) ? (isPrime(t%1000)?true:false) : false ) : false;
+			// left-to-right
 			bTruncatablePrime = isPrime(t%root);
 			
 			for(int i=1; i<power; i++)
@@ -61,23 +59,23 @@ public class Problem037
 					break; //if one of the value is false, dont bother to calculate others
 			}
 						
-			//right-to-left. proceed only if master value is prime and left-to-right is prime
+			// right-to-left. proceed only if master value is prime and left-to-right is prime
 			if(bTruncatablePrime)
 			{ 
-//				bTruncatablePrime = (isPrime(t/10)) ? ((isPrime(t/100)) ? (isPrime(t/1000)?true:false) : false ) : false;
-				
 				for(int i=1; i<power; i++)
 				{
 					if(bTruncatablePrime)
 					{ bTruncatablePrime = isPrime(t/((int)Math.pow(root, i))); }
-					else
-						break; //if one of the value is false, dont bother to calculate others
+					else {
+						break; // if one of the value is false, dont bother to calculate others	
+					}
 				}
 			}
 						
-			//if 'b' is still true, it is a truncatable prime
-			if(bTruncatablePrime)
+			// if 'b' is still true, it is a truncatable prime
+			if(bTruncatablePrime) {
 				System.out.println("### Truncatable Prime ### = " + t);
+			}
 		}
 		
 		return bTruncatablePrime;
@@ -93,13 +91,11 @@ public class Problem037
 	public static int numberOfDigits(int value)
 	{
 		int digits = 0;
-		
 		while(value > 0)
 		{
 			++digits;
 			value /= 10;
 		}
-		
 		return digits;
 	}
 }

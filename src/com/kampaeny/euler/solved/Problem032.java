@@ -12,13 +12,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Problem032 
-{
+public class Problem032 {
 	static final int MAX_DIGIT = 9;
 	static final long ONE_MILLION = 1000000L;
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		long multiplicand = ONE_MILLION; // 5 X 7; "7" is the multiplicand
 		long multiplier = ONE_MILLION; // 5 X 7; "5" is the multiplier
 		String concat = null;
@@ -26,75 +24,60 @@ public class Problem032
 		Set<Integer> lstPandigitals = new HashSet<Integer>();
 		Set<Integer> setProducts = new HashSet<Integer>();
 		int totalPandigitalSum = 0;
-		
-		for(long i=1; i<=multiplier; i++)
-		{
-			if(concat == null) concat = "";
-			
-			for(long j=1; j<=multiplicand; j++)
-			{
-				concat = concat + String.valueOf(i) + String.valueOf(j) + String.valueOf((i*j));
-				
-				if(concat.length()>MAX_DIGIT)
-				{
+		for (long i = 1; i <= multiplier; i++) {
+			if (concat == null) {
+				concat = "";
+			}
+			for (long j = 1; j <= multiplicand; j++) {
+				concat = concat + String.valueOf(i) + String.valueOf(j) + String.valueOf((i * j));
+				if (concat.length() > MAX_DIGIT) {
 					concat = "";
 					break;
-				}
-				else
-				{					
-					if(concat.length() == 9)
-					{
+				} else {
+					if (concat.length() == 9) {
 						bPanDigital = isPandigital(concat);
-						
-						if(bPanDigital) 
-						{ 
+
+						if (bPanDigital) {
 							lstPandigitals.add(Integer.valueOf(concat));
-							setProducts.add(Integer.valueOf(String.valueOf(i*j)));
+							setProducts.add(Integer.valueOf(String.valueOf(i * j)));
 						}
 					}
 				}
-				
-				concat="";
-			}			
-		}	
-		
-		for(int k : setProducts)
-		{
+				concat = "";
+			}
+		}
+		for (int k : setProducts) {
 			totalPandigitalSum += k;
 		}
-		
 		System.out.println("Total pandigitals found: " + lstPandigitals.size());
 		System.out.println(lstPandigitals);
 		System.out.println("Sum of pandigital products found = " + totalPandigitalSum);
 	}
-	
-	static boolean isPandigital(String strPan)
-	{
-		//if the string is more than 9 in length, dont bother to proceed further since it is not going to 1-9 pandigital
-		if(strPan.length() > MAX_DIGIT || strPan.length() < MAX_DIGIT)
-			return false;			
-			
+
+	static boolean isPandigital(String strPan) {
+		// if the string is more than 9 in length, don't bother to proceed further since
+		// it is not going to 1-9 pandigital
+		if (strPan.length() > MAX_DIGIT || strPan.length() < MAX_DIGIT) {
+			return false;
+		}
 		boolean[] numerals = new boolean[MAX_DIGIT];
 		Arrays.fill(numerals, false);
-			
-		long iPan = Long.valueOf(strPan.trim());		
+		long iPan = Long.valueOf(strPan.trim());
 		long digit = 0;
-		
-		while(iPan > 0)
-		{
+		while (iPan > 0) {
 			digit = iPan % 10;
 			iPan /= 10;
-			if(digit>0)
-				numerals[Integer.parseInt(String.valueOf(digit-1))] = true;			
+			if (digit > 0) {
+				numerals[Integer.parseInt(String.valueOf(digit - 1))] = true;
+			}
 		}
-		
-		for(boolean pandigit : numerals)
-		{
-			//if an index i is 'false', it means that one of the 1-9 digits was not present in the string supplied to this method so return false
-			if(!pandigit)
+		for (boolean pandigit : numerals) {
+			// if an index i is 'false', it means that one of the 1-9 digits was not present
+			// in the string supplied to this method so return false
+			if (!pandigit) {
 				return false;
+			}
 		}
-		
-		return true;		
+		return true;
 	}
 }
