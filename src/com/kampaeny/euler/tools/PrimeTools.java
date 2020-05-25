@@ -7,12 +7,12 @@ public class PrimeTools {
     /**
      * Pre-construct an array of size one million with a value true means its index
      * is a prime number
-     *
-     * @return boolean array
      */
-    public static boolean[] fillSieve(boolean[] primes) {
-        Arrays.fill(primes, true); // assume all integers are prime.
-        primes[0] = primes[1] = false; // we know 0 and 1 are not prime.
+    public static void fillSieve(boolean[] primes) {
+        // assume all integers are prime.
+        Arrays.fill(primes, true);
+        // we know 0 and 1 are not prime.
+        primes[0] = primes[1] = false;
         for (int i = 2; i < primes.length; i++) {
             // if the number is prime,
             // then go through all its multiples and make their values false.
@@ -22,6 +22,6 @@ public class PrimeTools {
                 }
             }
         }
-        return primes;
     }
+
 }

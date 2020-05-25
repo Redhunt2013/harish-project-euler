@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class NumberTools {
+
     /**
      * Find total number of digits
      *
@@ -64,7 +65,10 @@ public class NumberTools {
      * @return sum of digits
      */
     public static int splitIntoDigitsAndSum(int value) {
-        String number = String.valueOf(value);
+        return totalDigits(String.valueOf(value));
+    }
+
+    private static int totalDigits(final String number) {
         int sum = 0;
         for (int j = 0; j < number.length(); j++) {
             int k = Character.digit(number.charAt(j), 10);
@@ -79,13 +83,7 @@ public class NumberTools {
      * @return sum of digits
      */
     public static int splitIntoDigitsAndSum(long value) {
-        String number = String.valueOf(value);
-        int sum = 0;
-        for (int j = 0; j < number.length(); j++) {
-            int k = Character.digit(number.charAt(j), 10);
-            sum += k;
-        }
-        return sum;
+        return totalDigits(String.valueOf(value));
     }
 
     /**
@@ -94,13 +92,7 @@ public class NumberTools {
      * @return sum of digits
      */
     public static int splitIntoDigitsAndSum(final BigInteger value) {
-        String number = String.valueOf(value);
-        int sum = 0;
-        for (int j = 0; j < number.length(); j++) {
-            int k = Character.digit(number.charAt(j), 10);
-            sum += k;
-        }
-        return sum;
+        return totalDigits(String.valueOf(value));
     }
 
 }

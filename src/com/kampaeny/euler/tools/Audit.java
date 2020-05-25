@@ -1,6 +1,7 @@
 package com.kampaeny.euler.tools;
 
 public class Audit {
+
     /**
      * Return total time taken in milliseconds
      *
@@ -11,4 +12,5 @@ public class Audit {
     public static long timeTaken(long start, long end) {
         return end - start;
     }
+
 }

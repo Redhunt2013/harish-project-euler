@@ -3,6 +3,7 @@ package com.kampaeny.euler.tools;
 import java.util.Arrays;
 
 class StringTools {
+
     public static void split(String oneString) {
         System.out.println(separateString(oneString));
     }
@@ -29,4 +30,5 @@ class StringTools {
         }
         return tmp;
     }
+
 }
