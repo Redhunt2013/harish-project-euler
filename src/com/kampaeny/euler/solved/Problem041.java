@@ -26,6 +26,7 @@ import java.util.List;
 import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem041 {
+
     private static final int ONE_MILLION = 10000000;
     private static final boolean[] primes = new boolean[ONE_MILLION];
     private static final List<Integer> lstPandigitalPrimes = new ArrayList<>();
@@ -33,7 +34,6 @@ public class Problem041 {
     public static void main(String[] args) {
         // construct the prime array
         PrimeTools.fillSieve(primes);
-
         for (int a = 0; a < primes.length; a++) {
             if (primes[a]) {
                 if (isPandigital(String.valueOf(a))) {
@@ -41,12 +41,10 @@ public class Problem041 {
                 }
             }
         }
-
         System.out.println("Total pandigitals primes found: " + lstPandigitalPrimes.size() + " under: " + ONE_MILLION);
         System.out.println("##########################");
         System.out.println("Max pandigital prime = " + Collections.max(lstPandigitalPrimes));
         System.out.println("##########################");
-
     }
 
     /* ################################################## */
@@ -61,28 +59,24 @@ public class Problem041 {
      */
     private static boolean isPandigital(final String strPan) {
         final int length = strPan.trim().length();
-
         boolean[] numerals = new boolean[length];
         Arrays.fill(numerals, false);
-
         int iPan = Integer.valueOf(strPan.trim());
         int digit;
-
         while (iPan > 0) {
             digit = iPan % 10;
             iPan /= 10;
             if (digit > 0 && digit <= length)
                 numerals[digit - 1] = true;
         }
-
         for (final boolean pandigit : numerals) {
             // if an index i is 'false', it means that one of the 1-9 digits was not present in the string supplied to this method so return false
             if (!pandigit) {
                 return false;
             }
         }
-
         // if it reaches this point, number is a pandigital. Check if its prime too.
         return true;
     }
+
 }

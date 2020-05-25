@@ -14,26 +14,23 @@ import com.kampaeny.euler.tools.NumberTools;
 import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem037 {
+
     private static final int ONE_MILLION = 1000000;
     private static final boolean[] primes = new boolean[ONE_MILLION];
 
     public static void main(String[] args) {
         int primeSum = 0;
         List<Integer> truncPrimeList = new ArrayList<>();
-
         // construct the prime array
         PrimeTools.fillSieve(primes);
-
         for (int i = 8; i < primes.length; i++) {
             if (isTruncatablePrime(i)) {
                 truncPrimeList.add(i);
             }
         }
-
         for (int j = 0; j < 11; j++) {
             primeSum = primeSum + truncPrimeList.get(j);
         }
-
         System.out.println("####################");
         System.out.println("Final Sum = " + primeSum);
         System.out.println("####################");
@@ -43,11 +40,9 @@ public class Problem037 {
         boolean bTruncatablePrime = false;
         int root = 10;
         int power = NumberTools.numberOfDigits(t);
-
         if (isPrime(t)) {
             // left-to-right
             bTruncatablePrime = isPrime(t % root);
-
             for (int i = 1; i < power; i++) {
                 if (bTruncatablePrime) {
                     bTruncatablePrime = isPrime(t % ((int) Math.pow(root, i)));
@@ -55,7 +50,6 @@ public class Problem037 {
                     break; // if one of the value is false, dont bother to calculate others
                 }
             }
-
             // right-to-left. proceed only if master value is prime and left-to-right is prime
             if (bTruncatablePrime) {
                 for (int i = 1; i < power; i++) {
@@ -66,17 +60,16 @@ public class Problem037 {
                     }
                 }
             }
-
             // if 'b' is still true, it is a truncatable prime
             if (bTruncatablePrime) {
                 System.out.println("### Truncatable Prime ### = " + t);
             }
         }
-
         return bTruncatablePrime;
     }
 
     private static boolean isPrime(int n) {
         return primes[n];
     }
+
 }

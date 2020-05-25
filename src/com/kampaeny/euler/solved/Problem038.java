@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Problem038 {
+
     private static final int MAX_DIGIT = 9;
     private static final int ONE_MILLION = 1000000;
 
@@ -28,34 +29,27 @@ public class Problem038 {
         String concat = null;
         boolean bPanDigital;
         final List<String> lstPandigitals = new ArrayList<>();
-
         for (int i = 1; i <= ONE_MILLION; i++) {
             if (concat == null) {
                 concat = "";
             }
-
             for (int j = 1; j <= ONE_MILLION; j++) {
                 concat = concat + i * j;
-
                 if (concat.length() > MAX_DIGIT) {
                     break;
                 } else {
                     if (concat.length() == 9) {
                         bPanDigital = isPandigital(concat);
-
                         if (bPanDigital) {
                             lstPandigitals.add(concat);
                         }
                     }
                 }
             }
-
             concat = "";
         }
-
         System.out.println("Total pandigitals found: " + lstPandigitals.size());
         System.out.println(lstPandigitals);
-
         System.out.println("##########################");
         System.out.println("Max pandigital = " + Collections.max(lstPandigitals));
         System.out.println("##########################");
@@ -66,13 +60,10 @@ public class Problem038 {
         if (strPan.length() > MAX_DIGIT || strPan.length() < MAX_DIGIT) {
             return false;
         }
-
         boolean[] numerals = new boolean[MAX_DIGIT];
         Arrays.fill(numerals, false);
-
         int iPan = Integer.valueOf(strPan.trim());
         int digit;
-
         while (iPan > 0) {
             digit = iPan % 10;
             iPan /= 10;
@@ -80,14 +71,13 @@ public class Problem038 {
                 numerals[digit - 1] = true;
             }
         }
-
         for (final boolean pandigit : numerals) {
             // if an index i is 'false', it means that one of the 1-9 digits was not present in the string supplied to this method so return false
             if (!pandigit) {
                 return false;
             }
         }
-
         return true;
     }
+
 }

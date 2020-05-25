@@ -17,49 +17,39 @@ import com.kampaeny.euler.tools.Audit;
 import com.kampaeny.euler.tools.NumberTools;
 
 public class Problem119 {
+
     public static void main(String[] args) {
         final long startTime = System.currentTimeMillis();
         List<BigInteger> indices = new ArrayList<>();
-
         // initialize variables
         BigInteger b = new BigInteger("2");
         BigInteger e = new BigInteger("2");
         BigInteger max = new BigInteger("400");
         BigInteger maxList = new BigInteger("50");
-
         for (; b.compareTo(max) < 0; b = b.add(BigInteger.ONE)) {
             BigInteger value = b;
             e = new BigInteger("2");
-
             for (; e.compareTo(maxList) < 0; e = e.add(BigInteger.ONE)) {
                 value = value.multiply(b);
-
                 if (b.compareTo(new BigInteger(String.valueOf(NumberTools.splitIntoDigitsAndSum(value)))) == 0) {
                     indices.add(value);
                 }
-
                 if (indices.size() > 50) {
                     break;
                 }
             }
-
             if (indices.size() > 50) {
                 break;
             }
         }
-
         // sort
         Collections.sort(indices);
-
         System.out.println("####################");
         System.out.println("Size: " + indices.size());
         System.out.println(indices);
         System.out.println(indices.get(2 - 1) + ", " + indices.get(10 - 1) + ", " + indices.get(30 - 1));
         System.out.println("####################");
-
-        // calculate duration
-        long endTime = System.currentTimeMillis();
-        double timeTaken = Audit.timeTaken(startTime, endTime) / 1000;
-        System.out.println("Total Time Taken: " + (timeTaken));
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000));
     }
+
 }

@@ -16,21 +16,19 @@ import java.util.List;
 import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem050 {
+
     private static final int MAX_VALUE = 1000000;
     private static final boolean[] primes = new boolean[MAX_VALUE];
     private static final List<Integer> primeNumbersList = new ArrayList<>();
 
     public static void main(String[] args) {
         PrimeTools.fillSieve(primes);
-
         for (int a = 0; a < primes.length; a++) {
             if (primes[a]) {
                 primeNumbersList.add(a);
             }
         }
-
         System.out.println(primeNumbersList);
-
         int totalPrimesUnderMax = primeNumbersList.size();
         int tempSum;
         int tempSum2 = 0;
@@ -38,16 +36,12 @@ public class Problem050 {
         int outerBound = totalPrimesUnderMax - 1;
         int maxTerms1;
         int maxTerms2 = 0;
-
         while (innerBound <= outerBound) {
             tempSum = 0;
             maxTerms1 = 0;
-
             for (int i = innerBound; i <= outerBound; i++) {
                 tempSum += primeNumbersList.get(i);
-
                 ++maxTerms1;
-
                 if (tempSum > primeNumbersList.get(outerBound)) {
                     break;
                 } else if (primeNumbersList.contains(tempSum)) {
@@ -57,11 +51,10 @@ public class Problem050 {
                     }
                 }
             }
-
             ++innerBound;
         }
-
         System.out.println("Max Prime = " + tempSum2);
         System.out.println("Max Terms = " + maxTerms2);
     }
+
 }

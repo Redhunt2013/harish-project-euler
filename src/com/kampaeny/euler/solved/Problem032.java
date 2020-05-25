@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Problem032 {
+
     private static final int MAX_DIGIT = 9;
     private static final long ONE_MILLION = 1000000L;
 
@@ -34,7 +35,6 @@ public class Problem032 {
                 } else {
                     if (concat.length() == 9) {
                         bPanDigital = isPandigital(concat);
-
                         if (bPanDigital) {
                             lstPandigitals.add(Integer.valueOf(concat));
                             setProducts.add(Integer.valueOf(String.valueOf(i * j)));
@@ -78,4 +78,5 @@ public class Problem032 {
         }
         return true;
     }
+
 }

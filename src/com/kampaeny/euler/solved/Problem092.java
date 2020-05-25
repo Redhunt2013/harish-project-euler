@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Problem092 {
+
     public static void main(String[] args) {
         final int maxNum = 10000000;
         int sum = 0;
@@ -24,59 +25,48 @@ public class Problem092 {
         final boolean go1 = false;
         final boolean go2 = false;
         final List<Integer> numbers = new ArrayList<>();
-
         for (int i = 2; i <= maxNum; i++) {
             if (counter89(i, sum, countFor89, go1, go2) == 1) {
                 numbers.add(1);
             }
         }
-
         System.out.println("Total numbers ending at 89 = " + numbers.size());
     }
 
-    private static int counter89(final int maxNum, int sum, int countFor89,
-                                 boolean go1, boolean go2) {
+    private static int counter89(final int maxNum, int sum, int countFor89, boolean go1, boolean go2) {
         while (!go1) {
             sum = (sum == 0) ? digitizeAndPower(maxNum) : digitizeAndPower(sum);
-
             if (sum == 1) {
                 break;
             }
-
             if (sum == 89) {
                 go1 = true;
             }
         }
-
         while (!go2) {
             sum = digitizeAndPower(sum);
-
             if (sum == 1) {
                 break;
             }
-
             if (sum == 89) {
                 go2 = true;
             }
-
             if (go1 && go2) {
                 countFor89++;
                 sum = 0;
             }
         }
-
         return countFor89;
     }
 
     private static int digitizeAndPower(final int valueToParse) {
         String number = String.valueOf(valueToParse);
         int sum = 0;
-
         for (int j = 0; j < number.length(); j++) {
             int k = Character.digit(number.charAt(j), 10);
             sum += Math.pow(k, 2);
         }
-
         return sum;
     }
+
 }
