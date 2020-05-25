@@ -11,7 +11,7 @@ public class Problem011 {
     private static int finalValueAll = 0;
 
     public static void main(String[] args) throws IOException {
-        final Path path = Paths.get("", "Problem11.txt");
+        final Path path = Paths.get("resources", "Problem11.txt");
         final Charset charSet = Charset.forName("ISO-8859-1");
 
         final int gridDiagonalLength = 20;
