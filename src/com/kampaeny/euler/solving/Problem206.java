@@ -13,7 +13,6 @@ public class Problem206
 	public static void main(String[] args)
 	{
 		BigDecimal sq = new BigDecimal(Math.pow(1000000.0, 2.0));
-
 		System.out.println((sq.compareTo(new BigDecimal(0))>0));
 		System.out.println(NumberTools.numberOfDigits(sq));
 	}
