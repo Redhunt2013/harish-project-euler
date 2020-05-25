@@ -1,8 +1,8 @@
-package com.kampaeny.euler.utils;
+package com.kampaeny.euler.tools;
 
 import java.util.Arrays;
 
-public class PrimeSieve {
+public class PrimeTools {
 
     /**
      * Pre-construct an array of size one million with a value true means its index

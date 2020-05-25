@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.kampaeny.euler.utils.PrimeSieve;
+import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem041 {
     private static final int ONE_MILLION = 10000000;
@@ -32,7 +32,7 @@ public class Problem041 {
 
     public static void main(String[] args) {
         // construct the prime array
-        PrimeSieve.fillSieve(primes);
+        PrimeTools.fillSieve(primes);
 
         for (int a = 0; a < primes.length; a++) {
             if (primes[a]) {

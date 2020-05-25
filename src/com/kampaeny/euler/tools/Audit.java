@@ -1,6 +1,6 @@
-package com.kampaeny.euler.utils;
+package com.kampaeny.euler.tools;
 
-public class TimeTaken {
+public class Audit {
     /**
      * Return total time taken in milliseconds
      *

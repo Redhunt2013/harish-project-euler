@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.kampaeny.euler.utils.Digits;
-import com.kampaeny.euler.utils.TimeTaken;
+import com.kampaeny.euler.tools.Audit;
+import com.kampaeny.euler.tools.NumberTools;
 
 public class Problem119 {
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class Problem119 {
             for (; e.compareTo(maxList) < 0; e = e.add(BigInteger.ONE)) {
                 value = value.multiply(b);
 
-                if (b.compareTo(new BigInteger(String.valueOf(Digits.splitIntoDigitsAndSum(value)))) == 0) {
+                if (b.compareTo(new BigInteger(String.valueOf(NumberTools.splitIntoDigitsAndSum(value)))) == 0) {
                     indices.add(value);
                 }
 
@@ -59,7 +59,7 @@ public class Problem119 {
 
         // calculate duration
         long endTime = System.currentTimeMillis();
-        double timeTaken = TimeTaken.timeTaken(startTime, endTime) / 1000;
+        double timeTaken = Audit.timeTaken(startTime, endTime) / 1000;
         System.out.println("Total Time Taken: " + (timeTaken));
     }
 }

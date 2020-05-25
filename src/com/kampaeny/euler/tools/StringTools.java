@@ -1,8 +1,8 @@
-package com.kampaeny.euler.utils;
+package com.kampaeny.euler.tools;
 
 import java.util.Arrays;
 
-class SplitString {
+class StringTools {
     public static void split(String oneString) {
         System.out.println(separateString(oneString));
     }

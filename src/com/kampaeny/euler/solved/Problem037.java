@@ -10,8 +10,8 @@ package com.kampaeny.euler.solved;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kampaeny.euler.utils.Digits;
-import com.kampaeny.euler.utils.PrimeSieve;
+import com.kampaeny.euler.tools.NumberTools;
+import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem037 {
     private static final int ONE_MILLION = 1000000;
@@ -22,7 +22,7 @@ public class Problem037 {
         List<Integer> truncPrimeList = new ArrayList<>();
 
         // construct the prime array
-        PrimeSieve.fillSieve(primes);
+        PrimeTools.fillSieve(primes);
 
         for (int i = 8; i < primes.length; i++) {
             if (isTruncatablePrime(i)) {
@@ -42,7 +42,7 @@ public class Problem037 {
     private static boolean isTruncatablePrime(int t) {
         boolean bTruncatablePrime = false;
         int root = 10;
-        int power = Digits.numberOfDigits(t);
+        int power = NumberTools.numberOfDigits(t);
 
         if (isPrime(t)) {
             // left-to-right

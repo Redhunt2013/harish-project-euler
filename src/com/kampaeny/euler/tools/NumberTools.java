@@ -1,12 +1,12 @@
 /*
   Util class to work on digits
  */
-package com.kampaeny.euler.utils;
+package com.kampaeny.euler.tools;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Digits {
+public class NumberTools {
     /**
      * Find total number of digits
      *

@@ -13,7 +13,7 @@ package com.kampaeny.euler.solved;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kampaeny.euler.utils.PrimeSieve;
+import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem050 {
     private static final int MAX_VALUE = 1000000;
@@ -21,7 +21,7 @@ public class Problem050 {
     private static final List<Integer> primeNumbersList = new ArrayList<>();
 
     public static void main(String[] args) {
-        PrimeSieve.fillSieve(primes);
+        PrimeTools.fillSieve(primes);
 
         for (int a = 0; a < primes.length; a++) {
             if (primes[a]) {
