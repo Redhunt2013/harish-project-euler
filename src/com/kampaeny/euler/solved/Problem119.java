@@ -20,10 +20,10 @@ public class Problem119 {
 
     public static void main(String[] args) {
         final long startTime = System.currentTimeMillis();
-        List<BigInteger> indices = new ArrayList<>();
+        final List<BigInteger> indices = new ArrayList<>();
         // initialize variables
         BigInteger b = new BigInteger("2");
-        BigInteger e = new BigInteger("2");
+        BigInteger e;
         BigInteger max = new BigInteger("400");
         BigInteger maxList = new BigInteger("50");
         for (; b.compareTo(max) < 0; b = b.add(BigInteger.ONE)) {
