@@ -30,7 +30,6 @@ public class NumberTools {
      * @return int - number of digits
      */
     public static int numberOfDigits(BigDecimal value) {
-        System.out.println("#numberOfDigits(BigDecimal value): " + value);
         int digits = 0;
         while (value.compareTo(new BigDecimal(0)) > 0) {
             ++digits;
@@ -53,7 +52,6 @@ public class NumberTools {
         while (value > 0) {
             ++digits;
             value = value % 10;
-            System.out.println("digit = " + value);
             value /= 10;
         }
         return digits;

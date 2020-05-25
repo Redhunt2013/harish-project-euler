@@ -25,8 +25,6 @@ class StringTools {
                     tmp = tmp.concat(",").concat("'").concat(inStr[j].trim()).concat("'");
                 }
             }
-        } else if (inStr.length == 1) {
-            System.out.println("Single text :: " + Arrays.asList(inStr));
         }
         return tmp;
     }
