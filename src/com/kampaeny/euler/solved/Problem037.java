@@ -20,7 +20,7 @@ public class Problem037 {
 
     public static void main(String[] args) {
         int primeSum = 0;
-        List<Integer> truncPrimeList = new ArrayList<>();
+        final List<Integer> truncPrimeList = new ArrayList<>();
         // construct the prime array
         PrimeTools.fillSieve(primes);
         for (int i = 8; i < primes.length; i++) {
@@ -38,8 +38,8 @@ public class Problem037 {
 
     private static boolean isTruncatablePrime(int t) {
         boolean bTruncatablePrime = false;
-        int root = 10;
-        int power = NumberTools.numberOfDigits(t);
+        final int root = 10;
+        final int power = NumberTools.numberOfDigits(t);
         if (isPrime(t)) {
             // left-to-right
             bTruncatablePrime = isPrime(t % root);
@@ -68,7 +68,7 @@ public class Problem037 {
         return bTruncatablePrime;
     }
 
-    private static boolean isPrime(int n) {
+    private static boolean isPrime(final int n) {
         return primes[n];
     }
 

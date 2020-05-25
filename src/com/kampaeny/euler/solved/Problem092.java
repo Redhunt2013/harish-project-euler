@@ -21,7 +21,7 @@ public class Problem092 {
     public static void main(String[] args) {
         final int maxNum = 10000000;
         int sum = 0;
-        int countFor89 = 0;
+        final int countFor89 = 0;
         final boolean go1 = false;
         final boolean go2 = false;
         final List<Integer> numbers = new ArrayList<>();
@@ -60,7 +60,7 @@ public class Problem092 {
     }
 
     private static int digitizeAndPower(final int valueToParse) {
-        String number = String.valueOf(valueToParse);
+        final String number = String.valueOf(valueToParse);
         int sum = 0;
         for (int j = 0; j < number.length(); j++) {
             int k = Character.digit(number.charAt(j), 10);
