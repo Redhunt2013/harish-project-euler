@@ -1,5 +1,5 @@
 /*
-We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. 
+We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once.
 For example, 2143 is a 4-digit pandigital and is also prime.
 What is the largest n-digit pandigital prime that exists?
 
@@ -14,7 +14,7 @@ a number is divisible by 3 if and only if the digit sum of the number is divisib
 1+2+3 = 6
 1+2 = 3
 
-From here it is pretty clear that all pandigital numbers except 4 and 7 digit ones are divisible by 3 and thus can’t be primes.
+From here it is pretty clear that all pandigital numbers except 4 and 7 digit ones are divisible by 3 and thus canï¿½t be primes.
 */
 package com.kampaeny.euler.solved;
 
@@ -25,73 +25,64 @@ import java.util.List;
 
 import com.kampaeny.euler.utils.PrimeSieve;
 
-public class Problem041 
-{
-	static final int ONE_MILLION = /*Integer.MAX_VALUE*/ 10000000;
-	static boolean[] primes = new boolean[ONE_MILLION]; 
-	static boolean[] primePandigital = new boolean[ONE_MILLION];
-	static List<Integer> lstPandigitalPrimes = new ArrayList<Integer>();
+public class Problem041 {
+    private static final int ONE_MILLION = 10000000;
+    private static final boolean[] primes = new boolean[ONE_MILLION];
+    private static final List<Integer> lstPandigitalPrimes = new ArrayList<>();
 
-	public static void main(String args[])
-	{
-		//construct the prime array
-		primes = PrimeSieve.fillSieve(primes);
-		
-		for(int a=0; a<primes.length; a++)
-		{
-			if(primes[a])
-			{
-				if(isPandigital(String.valueOf(a)))
-					lstPandigitalPrimes.add(a);			
-			}
-		}
-		
-		System.out.println("Total pandigitals primes found: " + lstPandigitalPrimes.size() + " under: " + ONE_MILLION);
-		System.out.println("##########################");
-		System.out.println("Max pandigital prime = " + Collections.max(lstPandigitalPrimes));
-		System.out.println("##########################");
+    public static void main(String[] args) {
+        // construct the prime array
+        PrimeSieve.fillSieve(primes);
 
-	}
-	
-	/* ################################################## */
-	/* All utility methods go below. */
-	/* ################################################## */
+        for (int a = 0; a < primes.length; a++) {
+            if (primes[a]) {
+                if (isPandigital(String.valueOf(a))) {
+                    lstPandigitalPrimes.add(a);
+                }
+            }
+        }
 
-	public static boolean isPrime(int n) {
-	    return primes[n]; 
-	}
+        System.out.println("Total pandigitals primes found: " + lstPandigitalPrimes.size() + " under: " + ONE_MILLION);
+        System.out.println("##########################");
+        System.out.println("Max pandigital prime = " + Collections.max(lstPandigitalPrimes));
+        System.out.println("##########################");
 
-	/**
-	 * Finds and returns if true if the number is pandigital
-	 * @param strPan
-	 * @return
-	 */
-	static boolean isPandigital(String strPan)
-	{			
-		int length = strPan.trim().length();
-		
-		boolean[] numerals = new boolean[length];
-		Arrays.fill(numerals, false);
-			
-		int iPan = Integer.valueOf(strPan.trim());		
-		int digit = 0;
-		
-		while(iPan > 0)
-		{
-			digit = iPan % 10;
-			iPan /= 10;
-			if(digit>0 && digit<=length)
-				numerals[digit-1] = true;		
-		}
-		
-		for(boolean pandigit : numerals)
-		{
-			//if an index i is 'false', it means that one of the 1-9 digits was not present in the string supplied to this method so return false
-			if(!pandigit)
-				return false;
-		}
-		
-		//if it reaches this point, number is a pandigital. Check if its prime too,.,.				
-		return true;
-	}
+    }
+
+    /* ################################################## */
+    /* All utility methods go below. */
+    /* ################################################## */
+
+    /**
+     * Finds and returns if true if the number is pandigital
+     *
+     * @param strPan - a string to check pandigital
+     * @return true or false
+     */
+    private static boolean isPandigital(final String strPan) {
+        final int length = strPan.trim().length();
+
+        boolean[] numerals = new boolean[length];
+        Arrays.fill(numerals, false);
+
+        int iPan = Integer.valueOf(strPan.trim());
+        int digit;
+
+        while (iPan > 0) {
+            digit = iPan % 10;
+            iPan /= 10;
+            if (digit > 0 && digit <= length)
+                numerals[digit - 1] = true;
+        }
+
+        for (final boolean pandigit : numerals) {
+            // if an index i is 'false', it means that one of the 1-9 digits was not present in the string supplied to this method so return false
+            if (!pandigit) {
+                return false;
+            }
+        }
+
+        // if it reaches this point, number is a pandigital. Check if its prime too.
+        return true;
+    }
 }
