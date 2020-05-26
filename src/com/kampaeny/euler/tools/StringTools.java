@@ -1,7 +1,5 @@
 package com.kampaeny.euler.tools;
 
-import java.util.Arrays;
-
 class StringTools {
 
     public static void split(String oneString) {
