@@ -33,7 +33,7 @@ public class NumberTools {
         int digits = 0;
         while (value.compareTo(new BigDecimal(0)) > 0) {
             ++digits;
-            value = value.divide(new BigDecimal(10));
+            value = value.divide(new BigDecimal(10), 2);
             if (value.compareTo(BigDecimal.TEN) < 0) {
                 System.out.println(value);
             }
