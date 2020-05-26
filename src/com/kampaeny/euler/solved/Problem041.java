@@ -23,6 +23,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.kampaeny.euler.tools.Audit;
 import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem041 {
@@ -32,6 +33,7 @@ public class Problem041 {
     private static final List<Integer> lstPandigitalPrimes = new ArrayList<>();
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         // construct the prime array
         PrimeTools.fillSieve(primes);
         for (int a = 0; a < primes.length; a++) {
@@ -45,6 +47,7 @@ public class Problem041 {
         System.out.println("##########################");
         System.out.println("Max pandigital prime = " + Collections.max(lstPandigitalPrimes));
         System.out.println("##########################");
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
     /* ################################################## */

@@ -7,11 +7,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import com.kampaeny.euler.tools.Audit;
+
 public class Problem011 {
 
     private static int finalValueAll = 0;
 
     public static void main(String[] args) throws IOException {
+        final long startTime = System.currentTimeMillis();
         final Path path = Paths.get("resources", "Problem11.txt");
         final Charset charSet = Charset.forName("ISO-8859-1");
         final int gridDiagonalLength = 20;
@@ -50,6 +53,7 @@ public class Problem011 {
         System.out.println("########################");
         System.out.println("Biggest Value = " + finalValueAll);
         System.out.println("########################");
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
     private static void _L2RMulti(final int[][] regularArray) {

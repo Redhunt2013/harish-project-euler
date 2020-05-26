@@ -13,6 +13,7 @@ package com.kampaeny.euler.solved;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kampaeny.euler.tools.Audit;
 import com.kampaeny.euler.tools.PrimeTools;
 
 public class Problem050 {
@@ -22,6 +23,7 @@ public class Problem050 {
     private static final List<Integer> primeNumbersList = new ArrayList<>();
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         PrimeTools.fillSieve(primes);
         for (int a = 0; a < primes.length; a++) {
             if (primes[a]) {
@@ -55,6 +57,7 @@ public class Problem050 {
         }
         System.out.println("Max Prime = " + tempSum2);
         System.out.println("Max Terms = " + maxTerms2);
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
 }

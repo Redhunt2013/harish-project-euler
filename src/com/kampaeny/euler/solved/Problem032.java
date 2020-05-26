@@ -12,12 +12,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.kampaeny.euler.tools.Audit;
+
 public class Problem032 {
 
     private static final int MAX_DIGIT = 9;
     private static final long ONE_MILLION = 1000000L;
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         String concat = null;
         boolean bPanDigital;
         final Set<Integer> lstPandigitals = new HashSet<>();
@@ -50,6 +53,7 @@ public class Problem032 {
         System.out.println("Total pandigitals found: " + lstPandigitals.size());
         System.out.println(lstPandigitals);
         System.out.println("Sum of pandigital products found = " + totalPandigitalSum);
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
     private static boolean isPandigital(final String strPan) {

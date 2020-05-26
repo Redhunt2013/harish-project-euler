@@ -10,6 +10,7 @@ package com.kampaeny.euler.solved;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kampaeny.euler.tools.Audit;
 import com.kampaeny.euler.tools.NumberTools;
 import com.kampaeny.euler.tools.PrimeTools;
 
@@ -19,6 +20,7 @@ public class Problem037 {
     private static final boolean[] primes = new boolean[ONE_MILLION];
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         int primeSum = 0;
         final List<Integer> truncPrimeList = new ArrayList<>();
         // construct the prime array
@@ -34,6 +36,7 @@ public class Problem037 {
         System.out.println("####################");
         System.out.println("Final Sum = " + primeSum);
         System.out.println("####################");
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
     private static boolean isTruncatablePrime(int t) {

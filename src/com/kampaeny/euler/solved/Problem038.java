@@ -20,12 +20,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.kampaeny.euler.tools.Audit;
+
 public class Problem038 {
 
     private static final int MAX_DIGIT = 9;
     private static final int ONE_MILLION = 1000000;
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         String concat = null;
         boolean bPanDigital;
         final List<String> lstPandigitals = new ArrayList<>();
@@ -53,6 +56,7 @@ public class Problem038 {
         System.out.println("##########################");
         System.out.println("Max pandigital = " + Collections.max(lstPandigitals));
         System.out.println("##########################");
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
     private static boolean isPandigital(final String strPan) {

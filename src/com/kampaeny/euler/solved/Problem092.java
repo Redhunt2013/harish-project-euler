@@ -16,9 +16,12 @@ package com.kampaeny.euler.solved;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kampaeny.euler.tools.Audit;
+
 public class Problem092 {
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         final int maxNum = 10000000;
         int sum = 0;
         final int countFor89 = 0;
@@ -31,6 +34,7 @@ public class Problem092 {
             }
         }
         System.out.println("Total numbers ending at 89 = " + numbers.size());
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
     private static int counter89(final int maxNum, int sum, int countFor89, boolean go1, boolean go2) {

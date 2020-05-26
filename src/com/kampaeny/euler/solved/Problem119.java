@@ -49,7 +49,7 @@ public class Problem119 {
         System.out.println(indices);
         System.out.println(indices.get(2 - 1) + ", " + indices.get(10 - 1) + ", " + indices.get(30 - 1));
         System.out.println("####################");
-        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000));
+        System.out.println("Total Time Taken: " + (Audit.timeTaken(startTime, System.currentTimeMillis()) / 1000) + " seconds");
     }
 
 }
